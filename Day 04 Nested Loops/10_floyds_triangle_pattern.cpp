@@ -17,15 +17,13 @@ const int mx = 2e5+123;
 int main(){
     optimize();
 
-    int n = 4;
+    int n;
+    cin >> n;
     int cnt = 1;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < i+1; j++)
-        {
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < i + 1; j++){
             cout << cnt++ << " ";
-        }cout << endl;
-        
+        }
+        cout << endl;
     }
-    
 }
