@@ -1019,3 +1019,236 @@ int main(){
 - Returns nth Fibonacci number
 - Example: For n=5, output is 5 (sequence: 0,1,1,2,3,5)
 
+
+## Binary Numbers and Two's Complement
+
+### Binary Numbers
+- Base-2 number system (0,1)
+- Each position represents a power of 2
+- Example: 1101₂ = 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 13₁₀
+
+#### Binary to Decimal Conversion
+```cpp
+// Position values
+128  64  32  16  8  4  2  1
+1    0   1   1   0  1  0  1 = 181
+```
+
+### Two's Complement
+- Method for representing negative numbers
+- Range: -2ⁿ⁻¹ to 2ⁿ⁻¹-1 (n bits)
+
+#### Steps to Find Two's Complement:
+1. Invert all bits (1's complement)
+2. Add 1 to result
+
+```cpp
+Original:     1100 (12)
+1's Comp:     0011
+2's Comp:     0100 (-12)
+```
+
+#### Properties:
+- Adding number and its 2's complement gives 0
+- MSB (leftmost bit) indicates sign: 0=positive, 1=negative
+- No separate representation for -0
+
+## How Computers Store Numbers
+
+### Number Storage Basics
+- Numbers are stored in binary format (0s and 1s)
+- Fixed number of bits used for each data type
+- Uses various encoding schemes for different number types
+
+### Integer Storage
+- **Fixed Size**: Typically 16, 32, or 64 bits
+- **Unsigned**: Only positive numbers
+- **Signed**: Both positive and negative numbers
+```cpp
+int (32 bits):    -2,147,483,648 to 2,147,483,647
+unsigned int:     0 to 4,294,967,295
+```
+
+### Floating Point Storage
+- Uses IEEE 754 standard
+- Divided into three parts:
+    - Sign bit (1 bit)
+    - Exponent (8 bits)
+    - Mantissa (23 bits)
+```
+float (32 bits):  ±1.18e-38 to ±3.4e+38
+double (64 bits): ±2.23e-308 to ±1.80e+308
+```
+
+### Memory Representation Examples
+```cpp
+int x = 5;        // 00000000 00000000 00000000 00000101
+float f = 5.0;    // 01000000 10100000 00000000 00000000
+char c = '5';     // 00110101
+```
+
+## Data Type Modifiers in C++
+
+Data type modifiers alter the size and range of basic data types.
+
+### Size Modifiers
+- **short**: Reduces size
+- **long**: Increases size
+- **long long**: Further increases size
+
+### Sign Modifiers
+- **signed**: Allows negative values (default)
+- **unsigned**: Only positive values
+
+### Size Chart
+| Modifier | Size (bytes) | Range |
+|----------|--------------|-------|
+| short int | 2 | -32,768 to 32,767 |
+| unsigned short | 2 | 0 to 65,535 |
+| int | 4 | -2,147,483,648 to 2,147,483,647 |
+| unsigned int | 4 | 0 to 4,294,967,295 |
+| long int | 8 | -9.2e18 to 9.2e18 |
+| unsigned long | 8 | 0 to 18.4e18 |
+
+### Example Usage
+```cpp
+short int a = 10;        // Small integers
+unsigned int b = 1000;   // Non-negative values
+long double c = 3.14;    // High precision decimals
+```
+
+### Decimal to Binary Conversion Function
+
+This implementation converts decimal numbers to their binary representation.
+
+```cpp
+void decimalToBinary(int decimalNum){
+    int rem, pow = 1, binNum = 0;
+    while (decimalNum > 0)
+    {
+        rem = decimalNum % 2;
+        decimalNum /= 2;
+        binNum = binNum + pow * rem;
+        pow *= 10;
+    }
+    cout << binNum << endl;
+}
+```
+
+**Function Breakdown:**
+- Takes decimal number as input
+- Uses remainder method for binary conversion
+- Builds binary number from right to left
+- Uses power of 10 to place digits correctly
+- Prints final binary representation
+
+**Example Output:**
+```
+1  → 1
+2  → 10
+3  → 11
+4  → 100
+5  → 101
+6  → 110
+7  → 111
+8  → 1000
+9  → 1001
+10 → 1010
+```
+
+## Bitwise Shift Operations Example
+
+Demonstrates left shift (<<) and right shift (>>) bitwise operators in C++.
+
+### Left Shift (<<)
+- Expression: `a << b` multiplies `a` by 2^b
+- Examples:
+    - `10 << 2` = 10 * 2^2 = 40
+    - `10 << 3` = 10 * 2^3 = 80
+
+### Right Shift (>>)
+- Expression: `a >> b` divides `a` by 2^b
+- Examples:
+    - `10 >> 2` = 10 / 2^2 = 2
+    - `10 >> 3` = 10 / 2^3 = 1
+    - `80 >> 3` = 80 / 2^3 = 10
+
+Note: These operations are equivalent to multiplying (<<) or dividing (>>) by powers of 2
+
+
+## Check Power of Two Function
+
+This implementation determines if a number is a power of 2.
+
+```cpp
+void checkPowerOfTwo(int n){
+    if(n==0){
+        cout << "No" << endl;
+        return;
+    }
+    while (n!=1)
+    {
+        if(n%2!=0){
+            cout << "No" << endl;
+            return;
+        }
+            
+        n/=2;
+    }
+    cout << "Yes" << endl;
+}
+```
+
+**Function Breakdown:**
+- Takes integer `n` as input
+- Special case: if n=0, returns "No"
+- Repeatedly divides by 2 until reaching 1
+- If any odd number found during division, returns "No"
+- If reaches 1, returns "Yes"
+
+**Example Output:**
+```
+0  → No
+1  → Yes
+2  → Yes
+3  → No
+4  → Yes
+5  → No
+8  → Yes
+16 → Yes
+```
+
+## Bitwise Power of Two Check Implementation in C++
+
+* This code snippet provides an efficient way to check if a number is a power of 2 using bitwise operations.
+* Uses the property that powers of 2 have only one '1' bit in their binary representation.
+* The expression `n & (n-1)` will be 0 only for powers of 2.
+* Special case handling for n <= 0.
+
+```cpp
+void checkPowerOfTwo(int n) {
+    if (n <= 0) {
+        cout << "NO" << endl;
+        return;
+    }
+    
+    // If n is power of 2, n & (n-1) will be 0
+    if ((n & (n-1)) == 0) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+}
+```
+
+**Logic Explanation:**
+- For any power of 2, binary representation has exactly one '1' bit
+- Subtracting 1 flips all bits after the rightmost '1'
+- ANDing these numbers gives 0 only for powers of 2
+
+**Example:**
+```
+8  (1000) & 7  (0111) = 0000 → YES (power of 2)
+12 (1100) & 11 (1011) = 1000 → NO  (not power of 2)
+```
+

@@ -11,7 +11,7 @@ int main(){
     //a<<b = a*2^b
     cout << (10<<2) << endl;
     cout << (10<<3) << endl;
-    //a>>b = a
+    //a>>b = a/2^b
     cout << (10>>2) << endl;
     cout << (10 >> 3) << endl;
     cout << (80 >> 3) << endl;
