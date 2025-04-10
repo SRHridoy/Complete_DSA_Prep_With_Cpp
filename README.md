@@ -1252,3 +1252,275 @@ void checkPowerOfTwo(int n) {
 12 (1100) & 11 (1011) = 1000 → NO  (not power of 2)
 ```
 
+
+
+# Arrays in C++: A Beginner's Guide
+
+## What is an Array?
+An array is a collection of elements of the same data type, stored in contiguous memory locations.
+- Think of it as a row of boxes, each holding a similar item
+- Elements are accessed using an index starting at 0
+
+### Basic Array Declaration
+```cpp
+// Syntax: dataType arrayName[size];
+int numbers[5];     // Creates array of 5 integers
+char letters[10];   // Creates array of 10 characters
+```
+
+### Array Initialization
+```cpp
+int nums[5] = {1, 2, 3, 4, 5};  // Full initialization
+int arr[] = {1, 2, 3};          // Size determined automatically
+int zeros[5] = {0};             // All elements initialized to 0
+```
+
+## Key Concepts
+
+### 1. Array Indexing
+- First element: `array[0]`
+- Last element: `array[size-1]`
+```cpp
+int arr[5] = {10, 20, 30, 40, 50};
+cout << arr[0];    // Outputs: 10
+cout << arr[4];    // Outputs: 50
+```
+
+### 2. Common Operations
+```cpp
+// Reading array elements
+for(int i = 0; i < 5; i++) {
+    cout << arr[i] << " ";
+}
+
+// Writing to array elements
+for(int i = 0; i < 5; i++) {
+    arr[i] = i * 2;
+}
+```
+
+### 3. Array Size
+```cpp
+int size = sizeof(arr) / sizeof(arr[0]);  // Calculate array size
+```
+
+## Common Pitfalls
+- Array index out of bounds
+- Forgetting array starts at index 0
+- Not initializing array elements
+
+## Simple Array Example
+```cpp
+// Sum of array elements
+int arr[5] = {1, 2, 3, 4, 5};
+int sum = 0;
+for(int i = 0; i < 5; i++) {
+    sum += arr[i];
+}
+cout << "Sum: " << sum;  // Outputs: 15
+```
+
+## Finding Minimum Value in Array
+
+This example shows how to find the smallest number in an array.
+
+```cpp
+int mini(int arr[], int size) {
+    int minAns = INT_MAX;    // Start with largest possible value
+    for (int i = 0; i < size; i++) {
+        minAns = min(minAns, arr[i]);   // Keep track of smallest seen so far
+    }
+    return minAns;
+}
+
+int main() {
+    int arr[] = {1, 3, 4, 1, -30};
+    int ansMin = mini(arr, (sizeof(arr)/sizeof(arr[0])));
+    cout << ansMin << endl;   // Outputs: -30
+}
+```
+
+**How it works:**
+1. Start with `INT_MAX` (largest possible integer)
+2. Compare each array element with current minimum
+3. Update minimum if smaller value found
+4. Return smallest value after checking all elements
+
+Think of it like finding the shortest person in a line - you compare each person's height and remember the shortest one you've seen.
+
+## Linear Search Implementation in C++
+
+This example demonstrates how to implement a simple linear search algorithm.
+
+```cpp
+int linearSearch(int arr[], int size, int target) {
+    for (int i = 0; i < size; i++) {
+        if(arr[i] == target) return i;    // Return index if target found
+    }
+    return -1;    // Return -1 if target not found
+}
+
+int main() {
+    int arr[] = {1, 3, 4, 1, 5, 77, 8};
+    int target = 77;
+    cout << linearSearch(arr, (sizeof(arr)/sizeof(arr[0])), target);   // Outputs: 5
+}
+```
+
+**How it works:**
+1. Sequentially check each element in array
+2. Compare each element with target value
+3. Return index immediately if match found
+4. Return -1 if no match found after checking all elements
+
+Think of it like searching for a book on a shelf by checking each book one by one until you find the one you want.
+
+## Array Reversal Implementation in C++
+
+This example shows how to reverse the elements of an array in-place.
+
+```cpp
+void reverse(int arr[], int size) {
+    int start = 0, end = size-1;    // Two pointers: start and end
+    while (start < end) {
+        // Swap elements at start and end
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        
+        // Move pointers towards center
+        start++;
+        end--;
+    }
+}
+
+int main() {
+    int arr[] = {4, 2, 7, 8, 1, 2, 5};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    reverse(arr, size);
+    // Print reversed array
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";    // Outputs: 5 2 1 8 7 2 4
+    }
+}
+```
+
+**How it works:**
+1. Use two pointers: one at start, one at end
+2. Swap elements at these positions
+3. Move pointers towards center
+4. Continue until pointers meet
+
+Think of it like two people standing at opposite ends of a line, swapping items and walking towards each other until they meet.
+
+
+## Sum and Product Calculator Implementation in C++
+
+This example shows how to calculate both the sum and product of array elements.
+
+```cpp
+void sumAndProduct(int arr[], int size) {
+    int sum = 0, mul = 1;    // Initialize sum and product
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];       // Add each element to sum
+        mul *= arr[i];       // Multiply each element
+    }
+    cout << sum << "\t" << mul << endl;
+}
+
+int main() {
+    int arr[] = {3, 4, 2, 2, 1};
+    sumAndProduct(arr, 5);   // Outputs: 12    48
+}
+```
+
+**How it works:**
+1. Initialize sum to 0 and product to 1
+2. Loop through each array element
+3. Add element to sum
+4. Multiply element with running product
+5. Print both results
+
+Think of it like counting money: adding coins gives you the total (sum), while calculating compound interest uses multiplication (product).
+
+## Finding Unique Elements Implementation in C++
+
+This example shows how to find elements that appear only once in an array.
+
+```cpp
+void findUnique(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        int cnt = 0;    // Counter for current element
+        
+        for (int j = 0; j < size; j++) {
+            if (arr[i]==arr[j]) {
+                cnt++;   // Count occurrences of current element
+            }
+        }
+        if(cnt == 1) {
+            cout << arr[i] << " ";    // Print if element appears once
+        }
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 2, 1, 4};
+    findUnique(arr, 6);   // Outputs: 3 4
+}
+```
+
+**How it works:**
+1. Take each element one by one
+2. Count how many times it appears in array
+3. If it appears exactly once, print it
+4. Continue until all elements are checked
+
+Think of it like finding students who are only children (no siblings) in a class by counting how many times each last name appears.
+
+## Finding Array Intersection Implementation in C++
+
+This example shows how to find common elements between two arrays.
+
+```cpp
+void intersection(int arr1[], int size1, int arr2[], int size2) {
+    int maxSz = max(size1, size2);    // Find larger array size
+    bool is1Szbig = (maxSz == size1); // Check which array is bigger
+    
+    if(is1Szbig) {
+        // Iterate through first array if it's bigger
+        for (int i = 0; i < size1; i++) {
+            for (int j = 0; j < size2; j++) {
+                if(arr1[i] == arr2[j]) {
+                    cout << arr1[i] << " ";
+                    break;
+                }
+            }
+        }
+    } else {
+        // Iterate through second array if it's bigger
+        for (int i = 0; i < size2; i++) {
+            for (int j = 0; j < size1; j++) {
+                if(arr2[i] == arr1[j]) {
+                    cout << arr2[i] << " ";
+                    break;
+                }
+            }
+        }
+    }
+}
+
+int main() {
+    int arr1[] = {1, 2, 3, 4, 5};
+    int arr2[] = {6, 7, 3, 1};
+    intersection(arr1, 5, arr2, 4);   // Outputs: 1 3
+}
+```
+
+**How it works:**
+1. Determine which array is larger
+2. Loop through larger array as outer loop
+3. For each element, check if it exists in other array
+4. Print matching elements
+5. Use break to avoid duplicate prints
+
+Think of it like finding students who attend both math and science classes by comparing class rosters.
