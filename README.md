@@ -104,8 +104,8 @@ for (int i = 1; i <= n; i++)
 }
 ```
 
-/**
- * Prints a square pattern of numbers
+
+ <!-- * Prints a square pattern of numbers
  * Takes an integer input 'n' from the user and creates an n x n matrix
  * Each row contains numbers from 1 to n
  * 
@@ -114,8 +114,8 @@ for (int i = 1; i <= n; i++)
  * 1 2 3
  * 1 2 3
  * 
- * @param n The size of the square pattern (read from standard input)
- */
+ * @param n The size of the square pattern (read from standard input) -->
+
 
 ## Character Pattern Implementation in C++
 
@@ -139,8 +139,8 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
- * Prints a square pattern of alphabets
+
+ <!-- * Prints a square pattern of alphabets
  * Creates an n x n matrix where each row starts with 'A'
  * Each column in a row increments the letter
  * 
@@ -149,8 +149,8 @@ for (int i = 0; i < n; i++)
  * A B C
  * A B C
  * 
- * @param n The size of the square pattern
- */
+ * @param n The size of the square pattern -->
+
 
 ## Number Count Pattern Implementation in C++
 
@@ -174,7 +174,7 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
+<!-- 
  * Prints a square pattern of sequential numbers
  * Creates an n x n matrix with continuous counting
  * 
@@ -184,7 +184,7 @@ for (int i = 0; i < n; i++)
  * 7 8 9
  * 
  * @param n The size of the square pattern
- */
+  -->
 
 ## Count Character Pattern Implementation in C++
 
@@ -208,8 +208,8 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
- * Prints a square pattern of sequential alphabets
+
+ <!-- * Prints a square pattern of sequential alphabets
  * Creates an n x n matrix with continuous alphabet sequence
  * 
  * Example for n=3:
@@ -218,7 +218,7 @@ for (int i = 0; i < n; i++)
  * G H I
  * 
  * @param n The size of the square pattern
- */
+  -->
 
 ## Triangle Pattern Implementation in C++
 
@@ -242,7 +242,7 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
+<!-- 
  * Prints a right-angled triangle pattern using asterisks
  * Number of asterisks increases by 1 in each row
  * 
@@ -252,8 +252,8 @@ for (int i = 0; i < n; i++)
  * * * *
  * * * * *
  * 
- * @param n The height of the triangle pattern
- */
+ * @param n The height of the triangle pattern -->
+
 
 ## Number Triangle Pattern Implementation in C++
 
@@ -276,8 +276,7 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
- * Prints a right-angled triangle pattern using row numbers
+ <!-- * Prints a right-angled triangle pattern using row numbers
  * Each row contains its row number repeated row-number times
  * 
  * Example for n=4:
@@ -287,7 +286,7 @@ for (int i = 0; i < n; i++)
  * 4 4 4 4
  * 
  * @param n The height of the triangle pattern
- */
+  -->
 
 ## Alphabet Triangle Pattern Implementation in C++
 
@@ -313,8 +312,7 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
- * Prints a right-angled triangle pattern using alphabets
+ <!-- * Prints a right-angled triangle pattern using alphabets
  * Each row uses a different letter, starting from 'A'
  * 
  * Example for n=5:
@@ -324,8 +322,8 @@ for (int i = 0; i < n; i++)
  * D D D D
  * E E E E E
  * 
- * @param n The height of the triangle pattern
- */
+ * @param n The height of the triangle pattern -->
+
 
 ## Count Pattern Implementation in C++
 
@@ -348,7 +346,7 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
+<!-- 
  * Prints a right-angled triangle pattern with counting numbers
  * Each row counts from 1 up to the row position
  * 
@@ -359,7 +357,7 @@ for (int i = 0; i < n; i++)
  * 1 2 3 4
  * 
  * @param n The height of the triangle pattern
- */
+  -->
 
 ## Reverse Count Pattern Implementation in C++
 
@@ -382,7 +380,7 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
+<!-- 
  * Prints a right-angled triangle pattern with descending numbers
  * Each row counts down from row position to 1
  * 
@@ -393,7 +391,7 @@ for (int i = 0; i < n; i++)
  * 4 3 2 1
  * 
  * @param n The height of the triangle pattern
- */
+  -->
 
 ## Sequential Triangle Pattern Implementation in C++(Floyd Triangle)
 
@@ -417,8 +415,8 @@ for (int i = 0; i < n; i++){
 }
 ```
 
-/**
- * Prints a right-angled triangle with sequential counting
+
+ <!-- * Prints a right-angled triangle with sequential counting
  * Numbers increase continuously across rows
  * 
  * Example for n=4:
@@ -428,7 +426,7 @@ for (int i = 0; i < n; i++){
  * 7 8 9 10
  * 
  * @param n The height of the triangle pattern (read from standard input)
- */
+  -->
 
 ## Sequential Alphabet Triangle Pattern Implementation in C++
 
@@ -453,8 +451,8 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
- * Prints a right-angled triangle with sequential alphabets
+
+ <!-- * Prints a right-angled triangle with sequential alphabets
  * Letters continue in sequence across rows
  * 
  * Example for n=4:
@@ -464,7 +462,7 @@ for (int i = 0; i < n; i++)
  * G H I J
  * 
  * @param n The height of the triangle pattern
- */
+  -->
 
 ## Right-Shifting Number Pattern Implementation in C++(Inverted Triangle)
 
@@ -495,7 +493,7 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
+<!-- 
  * Prints a pattern of numbers with right shifts
  * Each row is indented one space more than the previous
  * Number of digits decreases by one in each row
@@ -507,7 +505,7 @@ for (int i = 0; i < n; i++)
  *    4
  * 
  * @param n The size of the pattern
- */
+  -->
 
 ## Right-Shifting Alphabet Pattern Implementation in C++
 
@@ -537,7 +535,7 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
+<!-- 
  * Prints a pattern of letters with right shifts
  * Each row is indented one space more than the previous
  * Number of letters decreases by one in each row
@@ -549,7 +547,7 @@ for (int i = 0; i < n; i++)
  *    D
  * 
  * @param n The size of the pattern
- */
+  -->
 
 ## Number Pyramid Pattern Implementation in C++
 
@@ -582,8 +580,8 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-/**
- * Prints a symmetric pyramid pattern with numbers
+
+ <!-- * Prints a symmetric pyramid pattern with numbers
  * Each row has ascending and descending number sequences
  * 
  * Example for n=4:
@@ -593,7 +591,7 @@ for (int i = 0; i < n; i++)
  * 1234321
  * 
  * @param n The height of the pyramid pattern
- */
+  -->
 
 ## Diamond Pattern Implementation in C++
 
@@ -646,8 +644,8 @@ for (int i = 0; i < n - 1; i++)
 }
 ```
 
-/**
- * Prints a hollow diamond pattern using asterisks
+
+ <!-- * Prints a hollow diamond pattern using asterisks
  * Creates symmetrical upper and lower halves
  * 
  * Example for n=4:
@@ -660,7 +658,7 @@ for (int i = 0; i < n - 1; i++)
  *    *
  * 
  * @param n The size of the diamond pattern
- */
+  -->
 
 
 ## Butterfly Pattern Implementation in C++
